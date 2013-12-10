@@ -16,7 +16,7 @@ user.before('create', function (data, next) {
     if (err) {
       return next(err);
     }
-    if (result.length === 1) {
+    if (result.length >= 1) {
       return next(new Error('user name is unavailable.'));
     }
     return next(null, data)
@@ -31,13 +31,30 @@ user.before('create', function (_user, next) {
   next(null, _user);
 });
 
+user.before('update', function (_user, next) {
+  if (_user.password.length > 0) {
+    // all user passwords are stored as hashes with unique salts
+    crypto.randomBytes(64, function(ex, buf) {
+      if (ex) throw ex;
+      // generate a new salt everytime a password is saved
+      _user.salt = buf.toString("base64");
+      var hash = crypto.createHmac("sha512", _user.salt).update(_user.password).digest("hex");
+      // store the password as a hash of the original password using a randomly generated salt
+      _user.password = hash;
+      next(null, _user);
+    });
+  } else {
+    next(null, _user);
+  }
+});
+
 user.before('create', function (_user, next) {
   // generate a new UUID for the account's access token
   _user.token = uuid();
-  // generate a new salt for the user's password
-  // every password gets its own salt
+  // all user passwords are stored as hashes with unique salts
   crypto.randomBytes(64, function(ex, buf) {
     if (ex) throw ex;
+    // generate a new salt everytime a password is saved
     _user.salt = buf.toString("base64");
     var hash = crypto.createHmac("sha512", _user.salt).update(_user.password).digest("hex");
     // store the password as a hash of the original password using a randomly generated salt

@@ -14,7 +14,8 @@ tap.test('can persist user resource to memory', function (t) {
 tap.test('can signup a new user', function (t) {
   user.signup({ name: "marak", email: "test@marak.com", "password": password, "confirmPassword": password }, function (err, result) {
     t.equal(err, null);
-    t.equal(result, "success")
+    t.equal(result.name, "marak");
+    t.equal(result.email, "test@marak.com");
     t.end();
   })
 });
