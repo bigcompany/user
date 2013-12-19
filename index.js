@@ -4,7 +4,7 @@ var resource = require('resource'),
 
 var user = resource.define('user', { 
   controller: require('./lib/'), 
-  schema: require('mschema-user')
+  schema: require('./user.mschema')
 });
 
 //

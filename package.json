@@ -14,7 +14,6 @@
   ],
   "main": "./index.js",
   "dependencies": {
-    "mschema-user": "0.5.x",
     "resource": "0.5.x"
   },
   "devDependencies": {
