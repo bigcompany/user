@@ -32,7 +32,7 @@ user.before('create', function (_user, next) {
 });
 
 user.before('update', function (_user, next) {
-  if (_user.password.length > 0) {
+  if (typeof _user.password !== 'undefined' && _user.password.length > 0) {
     // all user passwords are stored as hashes with unique salts
     crypto.randomBytes(64, function(ex, buf) {
       if (ex) throw ex;
