@@ -1,5 +1,4 @@
-var tap = require("tap"), 
-    request = require('request');
+var tap = require("tap");
 
 var user = require('../'),
     id = null,
