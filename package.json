@@ -14,7 +14,8 @@
   ],
   "main": "./index.js",
   "dependencies": {
-    "resource": "0.5.x"
+    "resource": "0.5.x",
+    "uuid": "1.4.x"
   },
   "devDependencies": {
     "tap": "0.4.x"
