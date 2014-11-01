@@ -62,8 +62,7 @@ tap.test('attempt to auth with "active" user - wrong password', function (t) {
 
 tap.test('attempt to auth with "active" user - empty password', function (t) {
   user.auth({ name: "marak", password: "" }, function (err, result) {
-    t.equal(err, null);
-    t.equal(result, "failure");
+    t.type(err, Object);
     t.end();
   })
 });

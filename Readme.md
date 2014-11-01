@@ -2,4 +2,4 @@
 
 for managing users
 
-<img src="https://travis-ci.org/bigcompany/resource-user.svg?branch=master"/>
+<img src="https://travis-ci.org/bigcompany/user.svg?branch=master"/>

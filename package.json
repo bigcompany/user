@@ -4,7 +4,7 @@
   "description": "resource for managing users",
   "repository": {
    "type": "git",
-   "url": "http://github.com/bigcompany/resource-user.git"
+   "url": "http://github.com/bigcompany/user.git"
   },
   "keywords": [
     "user",
