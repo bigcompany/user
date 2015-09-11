@@ -47,7 +47,11 @@ var user = {
       "input": {
         "name": {
           "type": "string",
-          "required": true
+          "required": false
+        },
+        "email": {
+          "type": "string",
+          "required": false
         }
       }
     },
