@@ -3,8 +3,8 @@
   "version": "0.6.1",
   "description": "resource for managing users",
   "repository": {
-   "type": "git",
-   "url": "http://github.com/bigcompany/user.git"
+    "type": "git",
+    "url": "http://github.com/bigcompany/user.git"
   },
   "keywords": [
     "user",
@@ -15,7 +15,7 @@
   "main": "./index.js",
   "dependencies": {
     "resource": "0.6.x",
-    "node-uuid": "1.4.x"
+    "uuid": "^3.0.0"
   },
   "devDependencies": {
     "tap": "0.4.x"

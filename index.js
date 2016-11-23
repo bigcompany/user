@@ -1,6 +1,6 @@
 var resource = require('resource'),
     crypto = require('crypto'),
-    uuid = require('node-uuid');
+    uuid = require('uuid');
 
 var user = resource.define('user', { 
   controller: require('./lib/'), 
