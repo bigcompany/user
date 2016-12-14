@@ -25,13 +25,15 @@ user.before('create', function (data, next) {
 
 user.before('create', function (_user, next) {
   if (typeof _user.password === 'undefined') {
+    // Removed, as password may be required field
     // if no password is present at the time of user creation, create a default password
-    _user.password = uuid();
+    //_user.password = uuid();
   }
   next(null, _user);
 });
 
 user.before('update', function (_user, next) {
+  // Do not attempt to encrypt empty password
   if (typeof _user.password !== 'undefined' && _user.password.length > 0) {
     // all user passwords are stored as hashes with unique salts
     crypto.randomBytes(64, function(ex, buf) {
@@ -49,6 +51,10 @@ user.before('update', function (_user, next) {
 });
 
 user.before('create', function (_user, next) {
+  // Do not attempt to encrypt empty password
+  if (typeof _user.password === "undefined" || _user.password.length === 0) {
+    return next(null, _user);
+  }
   // generate a new UUID for the account's access token
   _user.token = uuid();
   // all user passwords are stored as hashes with unique salts
