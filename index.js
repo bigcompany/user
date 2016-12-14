@@ -10,6 +10,7 @@ var user = resource.define('user', {
 //
 // Setup resource hooks
 //
+/*
 user.before('create', function (data, next) {
   // check that user name is available
   user.find({ name: data.name }, function(err, result){
@@ -22,6 +23,7 @@ user.before('create', function (data, next) {
     return next(null, data)
   });
 });
+*/
 
 user.before('create', function (_user, next) {
   if (typeof _user.password === 'undefined') {
