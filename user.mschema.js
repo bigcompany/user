@@ -57,7 +57,7 @@ var user = {
     },
     "auth": {
       "input": {
-        "name": {
+        "email": {
           "type": "string",
           "required": true
         },
