@@ -1,6 +1,6 @@
 {
   "name": "resource-user",
-  "version": "0.7.0",
+  "version": "0.7.0-1",
   "description": "resource for managing users",
   "repository": {
    "type": "git",
