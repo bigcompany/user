@@ -20,7 +20,7 @@ tap.test('can signup a new user', function (t) {
 });
 
 tap.test('can get new user', function (t) {
-  user.find({ name: "marak" }, function (err, result) {
+  user.find({ email: "test@marak.com" }, function (err, result) {
     t.equal(err, null);
     token = result[0].token;
     id = result[0].id;
@@ -29,7 +29,7 @@ tap.test('can get new user', function (t) {
 });
 
 tap.test('attempt to auth with "new" user', function (t) {
-  user.auth({ name: "marak", password: password }, function (err, result){
+  user.auth({ email: "test@marak.com", password: password }, function (err, result){
     t.equal(err, null);
     t.equal(result, "failure");
     t.end();
@@ -45,7 +45,7 @@ tap.test('confirm "new" user by token', function (t) {
 });
 
 tap.test('attempt to auth with "active" user', function (t) {
-  user.auth({ name: "marak", password: password }, function (err, result){
+  user.auth({ email: "test@marak.com", password: password }, function (err, result){
     t.equal(err, null);
     t.equal(result, "success");
     t.end();
@@ -53,7 +53,7 @@ tap.test('attempt to auth with "active" user', function (t) {
 });
 
 tap.test('attempt to auth with "active" user - wrong password', function (t) {
-  user.auth({ name: "marak", password: "foo" }, function (err, result){
+  user.auth({ email: "test@marak.com", password: "foo" }, function (err, result){
     t.equal(err, null);
     t.equal(result, "failure");
     t.end();
@@ -61,14 +61,14 @@ tap.test('attempt to auth with "active" user - wrong password', function (t) {
 });
 
 tap.test('attempt to auth with "active" user - empty password', function (t) {
-  user.auth({ name: "marak", password: "" }, function (err, result) {
+  user.auth({ email: "test@marak.com", password: "" }, function (err, result) {
     t.type(err, Object);
     t.end();
   })
 });
 
 tap.test('reset access token for "active" user', function (t) {
-  user.reset({query: { name: "marak" }}, function(err, result){
+  user.reset({query: { email: "test@marak.com" }}, function(err, result){
     t.equal(err, null);
     user.get({ id: id }, function(err, _user){
       t.equal(err, null);
