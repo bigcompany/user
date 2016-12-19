@@ -68,7 +68,7 @@ tap.test('attempt to auth with "active" user - empty password', function (t) {
 });
 
 tap.test('reset access token for "active" user', function (t) {
-  user.reset({query: { email: "test@marak.com" }}, function(err, result){
+  user.reset({ email: "test@marak.com" }, function(err, result){
     t.equal(err, null);
     user.get({ id: id }, function(err, _user){
       t.equal(err, null);
