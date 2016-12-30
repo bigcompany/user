@@ -28,6 +28,7 @@ tap.test('can get new user', function (t) {
   })
 });
 
+/*
 tap.test('attempt to auth with "new" user', function (t) {
   user.auth({ email: "test@marak.com", password: password }, function (err, result){
     t.equal(err, null);
@@ -35,6 +36,7 @@ tap.test('attempt to auth with "new" user', function (t) {
     t.end();
   })
 });
+*/
 
 tap.test('confirm "new" user by token', function (t) {
   user.confirm({ token: token }, function(err, result){
