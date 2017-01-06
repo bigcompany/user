@@ -28,10 +28,11 @@ tap.test('can get new user', function (t) {
   })
 });
 
+
 tap.test('attempt to auth with "new" user', function (t) {
   user.auth({ email: "test@marak.com", password: password }, function (err, result){
     t.equal(err, null);
-    t.equal(result, "failure");
+    t.equal(result, "success");
     t.end();
   })
 });
